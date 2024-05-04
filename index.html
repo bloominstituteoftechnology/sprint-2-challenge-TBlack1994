@@ -6,7 +6,17 @@
   <script id="challenge">
     // 👉 CHALLENGE 1
     function profileActivation(profile, reason) {
-
+      if (profile.active) {
+        if (!reason) {
+          return "confirm status manually";
+        }
+        profile.active = false;
+        profile.reason = reason;
+      } else {
+        profile.active = true;
+        delete profile.reason;
+      }
+      return profile;
     }
 
     // 👉 CHALLENGE 2
